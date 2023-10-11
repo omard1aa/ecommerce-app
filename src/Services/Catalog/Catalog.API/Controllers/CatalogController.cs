@@ -17,7 +17,8 @@ namespace Catalog.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetProducts")]
+        [HttpGet]
+        [Route("products", Name = "GetProducts")]
         [ProducesResponseType(typeof(IEnumerable<Product>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -51,9 +52,8 @@ namespace Catalog.API.Controllers
             }
         }
 
-
-        [Route("products/categories/{category}", Name = "GetProductByCategory")]
         [HttpGet]
+        [Route("products/categories/{category}", Name = "GetProductByCategory")]
         [ProducesResponseType(typeof(IEnumerable<Product>), StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
         {
@@ -71,6 +71,7 @@ namespace Catalog.API.Controllers
 
 
         [HttpPost]
+        [Route("products", Name = "CreateProduct")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product)
         {

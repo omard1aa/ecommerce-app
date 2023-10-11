@@ -1,6 +1,6 @@
 ﻿namespace Catalog.API.Entities
 {
-    public class Catagory
+    public class Category
     {
     }
 }
